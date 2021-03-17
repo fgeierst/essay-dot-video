@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Non-Fiction/Fiction</title>
+  <base target="_blank">
+  <link rel="stylesheet" href="assets/scss/pages/non-fiction-quiz.scss">
+  <!-- <link rel="stylesheet" href="assets/scss/pages/202008_online.scss"> -->
+</head>
+
+<body>
+
+  <div class="body">
+
+    <div id="quiz">
+      <header>
+        <h1>Nicht-fiktionales Verschiebespiel</h1>
+        <!-- <p>Verschiebe die Genres an die richtige Stelle!</p> -->
+      </header>
+      <main>
+        <ul class="quiz-playground">
+          <li v-for="item in items" class="quiz-row">
+            <input v-model="item.fictionality" type="range" min="0" max="100" step="10">
+            <!-- v-bind:value="item.fictionality"> -->
+            <label v-if="item.fictionality > 50" v-bind:style="{right: 108-item.fictionality + '%'}" class="align-left">
+              <!-- <a v-bind:href="item.url">{{ item.label }}</a> -->
+              <Button class="btn-show-article" @click="showArticle(item.id)">{{ item.label }}</Button>
+              <!-- <Button class="btn-remove"
+                      @click="removeTodo(item)">x</Button> -->
+            </label>
+            <label v-else v-bind:style="{left: item.fictionality + '%'}" class="align-right">
+              <!-- <a v-bind:href="item.url">{{ item.label }}</a> -->
+              <!-- <Button class="btn-remove"
+                      @click="removeTodo(item)">x</Button></label> -->
+              <Button class="btn-show-article" @click="showArticle(item.id)">{{ item.label }}</Button>
+            </label>
+
+          </li>
+        </ul>
+        <div class="quiz-newItem">
+          <input autocomplete="off" placeholder="Neues Genre" v-model="newTodo" @keyup.enter="addTodo">
+        </div>
+      </main>
+
+
+      <footer class="quiz-footer">
+        <span>Non-fiktion</span>
+        <span>Fiktion</span>
+      </footer>
+
+
+      <section id="articles">
+        <article id="article-0" v-if="currentId == 0">
+          <blockquote>
+            <h2> Observational Cinema</h2>
+            <p>dt. gelegentlich: beobachtendes Kino</p>
+
+            <p>Im engeren Sinne gehört das „Kino der Beobachtung“ zum filmischen Methodenkanon der visuellen
+              Anthropologie (in einem weiteren Sinne wird es auch als Oberbegriff für Direct Cinema und Cinéma Vérité
+              gebraucht, aus deren ethnologischer Reflexion das Konzept stammt). Es steht in enger Beziehung zur Methode
+              der Teilnehmerbeobachtung, beide verlangen ein intensives Sich-Einlassen auf das Alltagsleben, beide
+              registrieren die Handlungen des Beobachteten (steuern sie nicht), beide reklamieren für sich, seinen
+              subjektiven Sinnentwürfen Stimme zu geben (reverential witnessing wird manchmal als Aufgabe des
+              „observierenden Kinos“ genannt). Methodisch ist man nicht auf Verhaltensbeobachtung angewiesen, wie die
+              Filme Roger Graefs aus den 1970er Jahren zeigen, die neben protokollierenden Sequenzen auch und vor allem
+              Interviews enthalten, sich in Teilen der Interaktion mit den Porträtierten stellen etc. Ein neueres, recht
+              spartanisch wirkendes Beispiel ist Martin Bells Streetwise (1984), der Straßenkinder in Seattle ohne
+              weiteren Kommentar beobachtet.</p>
+
+
+            <p> Seit dem Aufkommen der Methode im ethnologischen Film der 1960er Jahre ist mehrfach der Einwand
+              formuliert worden, das Observations-Kino basiere auf einer naiven Erkenntnistheorie, die glaube, durch
+              Beobachtung in die Innenwelt der Interpretation eindringen zu können. Und die naturalistische Ästhetik der
+              Filme wurde beklagt, die anstrengend, unimaginiert und gelegentlich sogar ärgerlich (weil: das Subjekt
+              diffamierend) sei. Schon in den 1960er Jahren forderte darum der Ethno-Filmer David McDougall, über das
+              Kino der Beobachtung hinauszugehen. Umgekehrt wurde auf das Bemühen um Neutralität den Beobachteten
+              gegenüber hingewiesen, die weder heroisiert noch romantisiert würden.</p>
+            <cite>Aus: <a
+                href="https://filmlexikon.uni-kiel.de/index.php?action=lexikon&tag=det&id=3762">filmlexikon.uni-kiel.de</a></cite>
+          </blockquote>
+        </article>
+        <article id="article-1" v-if="currentId == 1">
+          <blockquote>
+            <h2>Interview</h2>
+            <p>Das Interview ist eine unverzichtbare Methode der journalistischen Recherche, und es ist eigenständige
+              journalistische Darstellungsform. Es werden drei Arten unterschieden: (1) Das Interview zur Sache, das
+              Informationen über Fakten vermitteln will, (2) das Meinungsinterview, das eine (meist prominente) Person
+              nach ihrem Urteil über ein Ereignis oder einen Sachverhalt befragt, und (3) das Interview zur Person, das
+              einen Menschen durch seine Antworten skizzieren will. Interviews als eigene journalistische Gattung finden
+              sich heute fast ausschließlich im Fernsehen (z.B. Zeitzeugen, Zur Person etc.).</p>
+            <p>Bei manchen Sujets dokumentarischer Arbeit ist auf das Interview kaum zu verzichten – wenn man das
+              Historische zu sichern sucht, so findet man es am einfachsten in den Äußerungen von Zeitgenossen, mit
+              allen Glättungen, Verstellungen, Dramatisierungen und Beschönigungen, die den Umgang mit einst
+              Zugestoßenem erträglich machen. Manche (wie Eberhard Fechner oder Marcel Ophüls) konzentrieren sich ganz
+              auf die „talking heads“ erzählender Zeitgenossen, im Extremfall sogar auf die Unterstützung ihrer
+              Erzählung durch historisches Material verzichtend. Auch der Kompilationsfilm, der das Material der Archive
+              zu erschließen sucht, ist seit den späten 1960ern und der Abwanderung der Gattung ins Fernsehen ohne die
+              Köpfe von Zeitgenossen, die das Geschehen im Gespräch ausbreiten, kaum mehr denkbar. Doch nicht nur das
+              „Kino der Geschichte“, sondern auch das „Kino der Fremde“, das sich allen Facetten des Fremden in seinen
+              ethnischen, historischen, kulturellen und subkulturellen, religiösen und künstlerischen Erscheinungsformen
+              widmet, ist auf das Gespräch mit den Teilnehmern dieser Kultur angewiesen, müssen doch die „inneren
+              Sichten“ des Geschehens verstanden und dargestellt werden. Die Frage der Deutungs- und Bedeutungsmacht –
+              der Interviewte unterwirft sich der sozialen und symbolischen Rolle des Fragenden (Effekt der „sozialen
+              Erwünschtheit“), der Interviewte arrangiert die erfragten Informationen nach dem eigenen Vorurteil – ist
+              auf allen Ebenen der Produktion zu reflektieren. – Einzig der „beobachtende Dokumentarfilm“ verzichtet bis
+              heute radikal auf die Kommentare von Zeugen und Beteiligten, konzentriert sich ganz auf die Beobachtung
+              laufender Ereignisse.</p>
+            <cite>Aus: <a
+                href="https://filmlexikon.uni-kiel.de/index.php?action=lexikon&tag=det&id=213">filmlexikon.uni-kiel.de</a></cite>
+          </blockquote>
+        </article>
+        <article id="article-2" v-if="currentId == 2">
+          <blockquote>
+            <h2> Animadok</h2>
+            <p> Kunstwort aus Animation(sfilm) und Dokumentarfilm; der Terminus wurde bekannt, als das Leipziger
+              Dokumentarfilmfestival in 1997 eine eigene Sektion „AnimaDok“ einführte</p>
+
+            <p> Nicht erst seit den 1930ern gibt es Mischformen des dokumentarischen Films, in denen Animationen Teile
+              der Präsentation übernehmen oder sogar in Gänze als Zeichentrick realisiert sind, ohne den Anspruch als
+              Dokumentarfilm aufzugeben (mit zahlreichen Mischungen zum Sach- und zum Lehrfilm). Es sind ganz
+              verschiedene Gründe, die zum Einsatz von Tricksequenzen führen: Es mag die Abstraktheit der Inhalte sein,
+              die Komplexität der Zusammenhänge, die Unabbildbarkeit des Intendierten, die vor allem den Einsatz von
+              Schaubildern, Verlaufsdiagrammen und ähnlichem erforderlich macht. Zeichentrick findet sich seltener, etwa
+              in dem halblangen, klar subjektivierten Betongold: Wie die Finanzkrise in mein Wohnzimmer kam (BRD 2013,
+              Katrin Rothe), in dem Aufnahmen mit den Vermietern der Protagonistin untersagt waren und durch schlicht
+              gehaltene Zeichentrick-Sequenzen ersetzt wurden (und dadurch an Schärfe gewannen); ein anderes bekanntes
+              Beispiel ist Khodorkovsky (BRD 2011, Cyril Tuschi), der in Teilen animiert wurde, weil Aufnahmen der
+              Verhaftung des Titelhelden schlicht nicht vorhanden waren. Dokumentarische Animations-Langfilme sind
+              selten; zu den Ausnahmen gehören der im Iran spielende Persepolis (Frankreich/USA 2007, Marjane
+              Satrapi,Vincent Paronnaud) und der den Libanonkrieg von 1982 verarbeitende, strikt subjektiv erzählte
+              Waltz with Bashir (Israel [...] 2008, Ari Folman). Die Mischung der Darstellungsmodi führt immer zu einer
+              ästhetischen Distanzierung vom Gegenstand.</p>
+            <cite>Aus: <a
+                href="https://filmlexikon.uni-kiel.de/index.php?action=lexikon&tag=det&id=8459">filmlexikon.uni-kiel.de</a></cite>
+          </blockquote>
+        </article>
+        <article id="article-3" v-if="currentId == 3">
+          <blockquote>
+            <h2> True Story</h2>
+            <p>oft: based on a true story; im Dt. manchmal: nach einer wahren Begebenheit, nach einem tatsächlichen Fall
+              o.ä.</p>
+
+            <p> Der meist in der Titelsequenz enthaltene Hinweis, die folgende Geschichte basiere auf tatsächlichen
+              Geschehnissen, markiert nicht unbedingt die folgende Geschichte als Dokufiktion, sondern reklamiert dem
+              Filmstoff höhere Glaubwürdigkeit oder hebt die Geschichte auf das Niveau des Exemplarischen (wie etwa in
+              Changeling, USA 2008, Clint Eastwood): Die Handlung beziehe sich auf authentische Vorkommnisse.
+              Dramaturgisch wird der Hinweis am Ende manchmal wieder aufgenommen, wenn Nachgeschichten mittels
+              Schrifttafeln erzählt werden, die selbst der Filmerzählung nicht mehr angehören, sondern nur einen
+              Ausgriff auf das (wiederum als real gekennzeichnete) nachfolgende Geschehen andeutet.</p>
+            <cite>Aus: <a
+                href="https://filmlexikon.uni-kiel.de/index.php?action=lexikon&tag=det&id=8459">filmlexikon.uni-kiel.de</a></cite>
+          </blockquote>
+        </article>
+        <article id="article-4" v-if="currentId == 4">
+          <blockquote>
+            <h2>Mockumentary</h2>
+            <p>auch: fake documentary, mock-documentary, Pseudo-Dokumentarfilm; von engl.: to mock = verhöhnen,
+              vortäuschen, nachahmen</p>
+
+            <p> Mockumentaries sind Filme, die den Dokumentarfilm als Gattung in seinen formalen Strategien nachäffen
+              und sich dabei sowohl über dessen Anspruch auf objektive Wahrhaftigkeit und kulturelles Prestige als auch
+              über das behandelte Thema und/oder über ein allzu leichtgläubiges Publikum lustig machen. Als Fiktionen im
+              Modus der Nichtfiktion bedienen sie sich in unterschiedlichen Abstufungen klassischer dokumentarischer
+              Stilmittel, wie etwa des sachlichen Arguments mit Voiceover-Kommentar und der objektiven Beobachtung mit
+              verwackelter Handkamera oder der direkten Adressierung des Zuschauers durch Personen in
+              Interviewsituationen. In der Regel geben sich Mockumentaries meist als solche zu erkennen – gelegentlich
+              allerdings erst im Nachspann –, mit bewussten, oft auf die Spitze getriebenen Unwahrscheinlichkeiten in
+              Thema, Motiv oder Situation. Nur selten bleibt über das Film-Ende hinaus Ungewissheit bezüglich des
+              Wirklichkeitsstatus‘ des Gezeigten bestehen, dann aber umso wirkungsvoller. Ironisch bis parodistisch im
+              Tonfall und der Komödie nahestehend persiflieren die interessantesten Beispiele die Kodifizierung des
+              Dokumentarischen und fordern zur kritischen Reflexion über die Konstruiertheit medialer
+              Wirklichkeitsdiskurse auf. Nicht zuletzt Ausdruck postmoderner Skepsis und Zynismus, häufen sich in den
+              letzten Jahren die entsprechenden Beispiele.</p>
+
+            <p> Zu den erwähnenswerten Werken gehören u.a. die den Fox-Wochenschauen nachgestellte „News on the
+              March“-Sequenz in Citizen Kane (Orson Welles, USA 1941); Jim McBrides Pseudo-Autobiografie David Holzman‘s
+              Diary (USA 1967); Welles‘ Spiel um Zaubertricks, Fälschungen und Fälscher, F for Fake (aka: Vérités et
+              mensonges, Frankreich/Iran/BRD 1974); Woody Allens „Dokumödie“ Zelig (USA 1982); sowie Rob Reiners
+              „rockumentary“ über eine (fiktive) britische Altrocker-Gruppe auf US-Tournee, This Is Spinal Tap (USA
+              1984). Neben der primär komödiantischen Variante gibt es auch einen Zweig von Horror-Mockumentaries, wie
+              etwa die Serienmörder-Persiflage C’est arrivé près de chez vous (Rémy Belvaux, André Bonzel, Benoît
+              Poelvoorde, Belgien 1992) oder die durch eine Internet-Hype-Kampagne vermarktete Independent-Produktion
+              The Blair Witch Project (Daniel Myrick, Eduardo Sanchez, USA 1999). Einen der anspruchvollsten
+              Pseudo-Dokumentarfilme legte schließlich der französische Filmemacher William Karel vor, mit seiner
+              preisgekrönten, Verschwörungstheorien über die „inszenierte“ Mondlandung aufgreifenden ARTE-Dokumentation
+              Opération lune (Frankreich 2002).</p>
+            <cite>Aus: <a
+                href="https://filmlexikon.uni-kiel.de/index.php?action=lexikon&tag=det&id=5125">filmlexikon.uni-kiel.de</a></cite>
+          </blockquote>
+        </article>
+        <article id="article-5" v-if="currentId == 5">
+          <blockquote>
+            <h2> Dokudrama</h2>
+            <p> auch: Doku-Drama; engl.: docudrama</p>
+            <p>
+
+              Ein Filmgenre, das eine eng an wirkliche, dem Publikum wohlbekannte Ereignisse angelehnte oder auf einem
+              authentischen Fall beruhende Handlung hat. In manchen Fällen werden dabei sogar reale Personen von ihnen
+              ähnlichen Schauspielern verkörpert. Bei gleichzeitiger Fiktionalisierung (ablesbar an der Darstellung von
+              Gefühlen und Gedanken, an erfundenen, auf den Punkt gebrachten Dialogen, am Einsatz von Hintergrundmusik
+              etc.) wird besonderer Wert auf authentische Schauplätze oder nachgestellte öffentliche Szenen gelegt, die
+              durch Fotos, Filmdokumente oder anderes Quellenmaterial überliefert sind und manchmal durch Interviews von
+              Zeitzeugen vertieft werden. Nicht selten beginnen sie mit dem Hinweis, dass die nachfolgende Erzählung auf
+              einem wahren Ereignis basiere, und versuchen so, nicht nur die folgende Geschichte zu authentifizieren,
+              sondern auch die Erwartungshaltung und Sympathiebereitschaft des Publikums zu steuern. Das Dokudrama wurde
+              als ein besonderer Typ der Dokufiktion vor allem in den USA als Fernsehformat entwickelt, dort schon früh
+              gelegentlich als Mehrteiler konzipiert. Seit den 1980er Jahren finden sich Dokudramas auch vermehrt im
+              deutschen Fernsehen und erfreuen sich großer Beliebtheit, wie beispielsweise Heinrich Breloers populäre
+              Dreiteiler Die Manns – Ein Jahrhundertroman (BRD 2001) und Speer und Er (BRD 2004) zeigen.
+            </p>
+            <cite>Aus: <a
+                href="https://filmlexikon.uni-kiel.de/index.php?action=lexikon&tag=det&id=2805">filmlexikon.uni-kiel.de</a></cite>
+          </blockquote>
+        </article>
+      </section>
+
+    </div>
+
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var quiz = new Vue({
+      el: '#quiz',
+      data: {
+        items: [
+          { id: 0, label: 'Beobachtender Dokumentarfilm', fictionality: 50, url: 'https://filmlexikon.uni-kiel.de/index.php?action=lexikon&tag=det&id=3762' },
+          { id: 1, label: 'Interviewfilm', fictionality: 50, url: 'https://filmlexikon.uni-kiel.de/index.php?action=lexikon&tag=det&id=213' },
+          { id: 2, label: 'Animierter Dokumentarfilm', fictionality: 50, url: 'https://filmlexikon.uni-kiel.de/index.php?action=lexikon&tag=det&id=8459' },
+          { id: 3, label: 'Basierend auf einer wahren Begebenheit', fictionality: 50, url: 'https://filmlexikon.uni-kiel.de/index.php?action=lexikon&tag=det&id=7776' },
+          { id: 4, label: 'Mockumentary', fictionality: 50, url: 'https://filmlexikon.uni-kiel.de/index.php?action=lexikon&tag=det&id=5125' },
+          { id: 5, label: 'Dokufiktion', fictionality: 50, url: 'https://filmlexikon.uni-kiel.de/index.php?action=lexikon&tag=det&id=2805' }
+        ],
+        currentId: -1
+      }, methods: {
+        addTodo: function () {
+          var value = this.newTodo && this.newTodo.trim()
+          if (!value) {
+            return
+          }
+          this.items.push({
+            label: value
+          })
+          this.newTodo = ''
+        },
+        removeTodo: function (todo) {
+          this.items.splice(this.items.indexOf(todo), 1)
+        },
+        showArticle: function (id) {
+          this.currentId = id;
+          var element = document.getElementById("articles");
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

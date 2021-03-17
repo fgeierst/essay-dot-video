@@ -1,0 +1,40 @@
+:root {
+	--gap: 1em;
+	--color-primary: darkslateblue;
+	--color-secondary: pink;
+}
+
+body {
+	font-family: 'Recursive', system-ui, sans-serif;
+	font-variation-settings: "wght"400;
+	background: aliceblue;
+}
+
+a {
+	color: inherit;
+}
+
+h1 {
+	font-variation-settings: "wght"900;
+	color: var(--color-primary);
+}
+
+.icon--circle {
+	border-radius: 50%;
+	height: 2em;
+	position: absolute;
+	bottom: -.2em;
+	left: 0;
+}
+
+.link--hasIcon {
+	position: relative;
+	padding-left: 2.5em;
+	white-space: nowrap;
+}
+
+header,
+main,
+footer {
+	margin-bottom: 2em;
+}

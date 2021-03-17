@@ -1,0 +1,85 @@
+@use '../fonts';
+@use '../components/quiz';
+
+:root {
+  --background: white;
+  --color-primary: darkslateblue;
+  --gap: 1em;
+}
+
+body {
+  font-family: 'Recursive', system-ui, sans-serif;
+  font-variation-settings: "wght"400;
+  background: aliceblue;
+}
+
+h1,
+h2,
+h3 {
+  font-variation-settings: "MONO"1, "CASL"0, "wght"900, "slnt"0, "ital"0.5;
+  color: darkslateblue;
+}
+
+a {
+  color: initial;
+}
+
+.body {
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 40em) 1fr;
+}
+
+.body>* {
+  grid-column: 2/-2;
+}
+
+
+@media (max-width: 900px) {
+  ul {
+    padding-inline-start: 0;
+  }
+}
+
+ol li {
+  margin-bottom: var(--gap);
+}
+
+ul.table li {
+  border-bottom: 5px solid rgba(72, 61, 139, 0.1);
+  list-style: none;
+  padding: var(--gap) 0;
+}
+
+ul.table li:first-child {
+  border-top: 5px solid rgba(72, 61, 139, 0.1);
+}
+
+ul.table a {
+  text-decoration: none;
+}
+
+ul.table {
+  padding-inline-start: 0;
+}
+
+cite {
+  font-variation-settings: "wght"500, "mono"0, "CASL"0;
+
+}
+
+cite.video {
+  text-transform: uppercase;
+  font-size: 90%;
+  letter-spacing: .03em;
+  font-style: normal;
+}
+
+cite.video::before {
+  content: "▶ ";
+}
+
+a.video {
+  text-decoration: none;
+}
+
+
