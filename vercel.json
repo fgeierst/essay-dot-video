@@ -3,7 +3,6 @@
     {
       "source": "/",
       "destination": "https://florian.geierstanger.org/videoessay",
-      "permanent": true,
       "statusCode": 308
     }
   ]
